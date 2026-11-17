@@ -2,6 +2,7 @@ student17.wt.thomasjuldo.com {
     encode zstd gzip
     redir /visit-counter /visit-counter/ 308
     handle /api/visits {
+        rewrite * /visits
         reverse_proxy visit-counter--api-1:8082
     }
     handle_path /visit-counter/* {
