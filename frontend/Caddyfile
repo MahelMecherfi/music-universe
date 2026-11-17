@@ -1,0 +1,4 @@
+student17.wt.thomasjuldo.com {
+    encode zstd gzip
+    reverse_proxy site:80
+}
