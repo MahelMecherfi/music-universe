@@ -7,6 +7,9 @@ services:
   caddy:
     image: caddy:2.11-alpine
     restart: unless-stopped
+    networks:
+      - default
+      - visit-counter
     ports:
       - "80:80"
       - "443:443"
@@ -18,3 +21,8 @@ services:
 volumes:
   caddy-data:
   caddy-config:
+
+networks:
+  visit-counter:
+    external: true
+    name: visit-counter-_default

@@ -1,4 +1,13 @@
 student17.wt.thomasjuldo.com {
     encode zstd gzip
-    reverse_proxy site:80
+    redir /visit-counter /visit-counter/ 308
+    handle /api/visits {
+        reverse_proxy visit-counter--api-1:8082
+    }
+    handle_path /visit-counter/* {
+        reverse_proxy visit-counter--site-1:80
+    }
+    handle {
+        reverse_proxy site:80
+    }
 }
