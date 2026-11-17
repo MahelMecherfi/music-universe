@@ -5,11 +5,12 @@ An interactive constellation of your Last.fm listening history. Artists become a
 ## Start
 
 1. Install and start Docker Desktop.
-2. Copy `.env.example` to `.env`.
-3. Edit `.env` with your **Last.fm username** and **API key** from https://www.last.fm/api/account/create . **Never commit `.env`**.
-4. In this folder, run `docker compose up -d --build`.
-5. Open http://localhost:8081 .
-6. Stop with `docker compose down`.
+2. Copy `.env.example` to `.env` and enter your **Last.fm username** and **API key** from https://www.last.fm/api/account/create . **Never commit `.env`**.
+3. In this folder, run `docker compose up --build`.
+4. Open http://localhost:8081 .
+5. Stop with `docker compose down`.
+
+The app also starts if `.env` has not been created yet; `/api/tracks` will return a clear configuration message until the Last.fm credentials are added.
 
 For a quick API check: http://localhost:8081/api/health and http://localhost:8081/api/tracks .
 
